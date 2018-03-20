@@ -11,5 +11,17 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   mix.scripts([
+      'resources/assets/js/vendor/toastr.js',
+      'resources/assets/js/vendor/vue.js',
+      'resources/assets/js/vendor/axios.js',
+      'resources/assets/js/vendor/bootstrap-filestyle.js',
+      'resources/assets/js/vendor/nicescroll.js',
+      'resources/assets/js/main.js',                  // Instancia de Vue ( #main)
+      'resources/assets/js/app.js',                   // Archivo JS del aplicativo
+
+    ], 'public/js/app.js'    ) // Archivo de salida JS
+   .styles ([
+        'resources/assets/css/toastr.css',
+        'resources/assets/css/app.css',
+       ], 'public/css/app.css') ;     // Archivo de salida CSS
