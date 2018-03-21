@@ -14,10 +14,11 @@ Route::get('/'            , 'HomeController@Index')->name('home');
 Route::get('/', 'HomeController@Index')->name('index');
 
 
-Route::get('logout'           , 'TercerosController@getLogOut')->name('cerrar-sistema');
-Route::get('modify-image'    , 'TercerosController@ModifyImage')->name('modify-image');
-Route::post('modify-image'    , 'TercerosController@UpdateImage')->name('modify-image');
+Route::get('logout'           , 'TercerosController@getLogOut')->name('logout');
 
+/*Route::get('modify-image'    , 'TercerosController@ModifyImage')->name('modify-image');
+Route::post('modify-image'    , 'TercerosController@UpdateImage')->name('modify-image');
+*/
 
 Route::get('listado'             , 'ProductosController@Listado')->name('productos.listado');
 

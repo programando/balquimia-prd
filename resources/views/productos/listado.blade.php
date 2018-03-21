@@ -40,11 +40,12 @@
         @foreach ( $Productos as $Producto)
 
         <tr>
-          <td > {{ $Producto->nom_producto             }} </td>
+          <td> {{ $Producto->nom_producto             }} </td>
           <td> {{ $Producto->nompresentacion          }} </td>
           <td> {{ $Producto->nom_marca                }} </td>
-          <td> {{ $Producto->pv_tron                }} </td>
-          <td>{{ $Producto->pv_ocasional                }} </td></td>
+          <td> {{ number_format( $Producto->pv_tron, 0, '.', ',' ) }} </td>
+           <td> {{ number_format( $Producto->pv_ocasional, 0, '.', ',' ) }} </td>
+
 
           <td>
             <h4>

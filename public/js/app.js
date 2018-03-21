@@ -3639,14 +3639,22 @@ e.exports=function(e){return null!=e&&(n(e)||r(e)||!!e._isBuffer)}},function(e,t
    methods:{
        BuscarTab: function( IdTab){
          var self = this;
-         var TextoHtml = '';
           axios.get('/tabs-detalle/'+IdTab).then( response => {
 
-              self.informacion_tab = response.data[0].informacion_tab;
+
               self.nombre_tab      = response.data[0].nombre_tab;
               self.orden_tab       =  response.data[0].orden_tab;
+              self.informacion_tab = response.data[0].informacion_tab;
+
+              $("#summernote").summernote("code", self.informacion_tab);
+
 
               //console.log( self );
+              /*
+              this.informacion_tab = $("#summernote").summernote("code")
+              */
+
+
           });
        },
    }
@@ -3656,17 +3664,38 @@ e.exports=function(e){return null!=e&&(n(e)||r(e)||!!e._isBuffer)}},function(e,t
 
  $(document).ready(function() {
 
-
-
     $("html , .side-navbar").niceScroll({
     cursorcolor:"#47bc6a",
-    cursorwidth:"8px"
+    cursorwidth:"8px",
     });
-
 
     $('.summernote').summernote({
-        height: 300
+        height: 300,
     });
 
-
  });
+
+
+
+function BuscarEnTabla() {
+     // Declare variables
+     var input, filter, table, tr, td, i;
+     input  = document.getElementById("input-buscar");
+     filter = input.value.toUpperCase();
+     table  = document.getElementById("table");
+     tr     = table.getElementsByTagName("tr");
+
+     // Loop through all table rows, and hide those who don't match the search query
+     for (i = 0; i < tr.length; i++) {
+       td = tr[i].getElementsByTagName("td")[0];
+       if (td) {
+         if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+           tr[i].style.display = "";
+         } else {
+           tr[i].style.display = "none";
+         }
+       }
+     }
+   }
+
+

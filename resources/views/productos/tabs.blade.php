@@ -14,27 +14,31 @@
      </div>
      <div class="card-body">
       @foreach ( $Tabs as $Tab )
-
+{{--
 
          <a href=" {{ route('productos.tab.detalle', $Tab->idtab) }}" >
             {{ $Tab->nombre_tab }}
          </a>
-{{--
+--}}
 
          <a href="" @click.prevent="BuscarTab( {{ $Tab->idtab}})">
             {{ $Tab->nombre_tab }}
          </a>
 
- --}}
+
       <br>
       @endforeach
 
      </div>
-    </div>
+</div>
+       <div class="form-group">
+       <button class="btn btn-success"> Crear Nueva Tab </button>
+      </div>
+
 
    </div>
 
-   {{--
+
    <div class="col-sm-9">
 
 
@@ -54,12 +58,12 @@
        </div>
 
        <div class="form-group">
-        <textarea class="summernote"  v-model="nombre_tab">   </textarea>
+        <textarea class="summernote" id="summernote" >   </textarea>
        </div>
 
 
        <div class="form-group">
-       <button> Grabar</button>
+       <button class="btn btn-primary"> Grabar Tab </button>
       </div>
 
       </form>
@@ -69,7 +73,7 @@
     </div>
 
    </div>
-   --}}
+
 
 
   </div>

@@ -34,9 +34,9 @@ class ProductosController extends Controller
       $form_title    = 'Productos';
       $browser_title = 'Productos';
       $Tab = DB::select(' call productos_tabs_consulta_tab_x_id_tab(?) ', array($Idtab ));
-      return view('productos.tabs-detalle', compact('Tab','form_title','browser_title'));
+      //return view('productos.tabs-detalle', compact('Tab','form_title','browser_title'));
 
-      //return response()->json( $Tab  );
+      return response()->json( $Tab  );
 
     }
 
