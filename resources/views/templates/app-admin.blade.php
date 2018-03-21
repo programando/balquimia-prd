@@ -12,20 +12,10 @@
 
       <div class="page-content d-flex align-items-stretch">
 
-        <div class="content-inner">
-
-          <section class="yes-padding-top">
-
             <div class="container-fluid">
                  @yield('contenido-app')
             </div>
 
-          </section>
-
-
-
-
-        </div>
       </div>
     </div>
 

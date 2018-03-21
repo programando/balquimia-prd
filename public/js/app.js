@@ -3631,26 +3631,28 @@ e.exports=function(e){return null!=e&&(n(e)||r(e)||!!e._isBuffer)}},function(e,t
  new Vue ({
    el: '#main' ,
 
-   /*data:{
-        imagen : '',
+   data:{
+        informacion_tab : '',
+        nombre_tab : '',
+        orden_tab: '',
    },
-
    methods:{
-       ImagenPerfilActualizar: function(){
+       BuscarTab: function( IdTab){
          var self = this;
-              axios.post('/update-image',{ imagen: self.imagen
-             }).then( response => {
-                    toastr.success('Registro creado con éxito');
-              }).catch ( error => {
-                     console.log( error );
-              });
+         var TextoHtml = '';
+          axios.get('/tabs-detalle/'+IdTab).then( response => {
 
+              self.informacion_tab = response.data[0].informacion_tab;
+              self.nombre_tab      = response.data[0].nombre_tab;
+              self.orden_tab       =  response.data[0].orden_tab;
+
+              //console.log( self );
+          });
        },
-
    }
-*/
 
 });
+
 
  $(document).ready(function() {
 
@@ -3661,6 +3663,10 @@ e.exports=function(e){return null!=e&&(n(e)||r(e)||!!e._isBuffer)}},function(e,t
     cursorwidth:"8px"
     });
 
+
+    $('.summernote').summernote({
+        height: 300
+    });
 
 
  });

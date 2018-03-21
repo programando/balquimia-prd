@@ -43,7 +43,7 @@
 
                 <!-- Logout    -->
                 <li class="nav-item">
-                    <a href="{{ route('cerrar-sistema') }}" class="nav-link logout">
+                    <a href="{{ route('productos.listado') }}" class="nav-link logout">
                       Productos
                       <i class="fa fa-product-hunt"></i>
                     </a>

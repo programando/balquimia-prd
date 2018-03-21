@@ -8,7 +8,7 @@
 <script src=" {{ asset('admin/js/Chart.min.js') }} "></script>
 <script src=" {{ asset('admin/js/jquery.validate.min.js') }} "></script>
 
-
+<script src=" {{ asset('admin/vendor/summernote/summernote-bs4.min.js') }} "></script>
 <!-- <script src=" {{ asset('admin/js/charts-home.js') }} "></script> -->
 
 <!-- Main File -->
@@ -16,6 +16,8 @@
 <script src=" {{ asset('admin/js/windows.height.js') }} "></script>
 <script src=" {{ asset('admin/js/messenger.min.js') }} "></script>
 <script src=" {{ asset('admin/js/messenger-theme-flat.js') }} "></script>
+
+
 
 
 
