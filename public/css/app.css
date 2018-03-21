@@ -295,3 +295,25 @@ button.toast-close-button {
 }
 
 
+.bg-green {
+  background: #3e820b !important;
+  color: #fff;
+}
+
+
+.bg-red {
+  background: #d30a1b !important;
+  color: #fff;
+}
+
+.bg-blue {
+  background: #0017ef !important;
+  color: #fff;
+}
+
+
+.bg-orange {
+  background: #dd8d1c !important;
+  color: #fff;
+}
+

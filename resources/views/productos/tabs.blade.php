@@ -19,13 +19,13 @@
          <a href=" {{ route('productos.tab.detalle', $Tab->idtab) }}" >
             {{ $Tab->nombre_tab }}
          </a>
+{{--
 
- {{--
          <a href="" @click.prevent="BuscarTab( {{ $Tab->idtab}})">
             {{ $Tab->nombre_tab }}
          </a>
 
---}}
+ --}}
       <br>
       @endforeach
 
@@ -33,7 +33,9 @@
     </div>
 
    </div>
-{{--   <div class="col-sm-9">
+
+   {{--
+   <div class="col-sm-9">
 
 
     <div class="card">
@@ -52,7 +54,7 @@
        </div>
 
        <div class="form-group">
-        <textarea class="summernote"  :value="nombre_tab"> @{{ nombre_tab }}  </textarea>
+        <textarea class="summernote"  v-model="nombre_tab">   </textarea>
        </div>
 
 

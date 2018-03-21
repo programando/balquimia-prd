@@ -57,7 +57,7 @@
           <td>
            <h4>
             <a href="{{route('productos.imagenes')}}">
-            <div class="badge badge-rounded bg-red text-small"> &nbsp; {{ $Producto->cant_imagenes }} Imágenes  &nbsp;    </div>
+            <div class="badge badge-rounded bg-orange text-small"> &nbsp; {{ $Producto->cant_imagenes }} Imágenes  &nbsp;    </div>
             </a>
             </h4>
           </td>
@@ -67,7 +67,7 @@
             @if( $Producto->inactivo=='1' )
               <div class="badge badge-rounded bg-red text-small"> &nbsp;   Inactivo  &nbsp;    </div>
               @else
-              <div class="badge badge-rounded bg-gren text-small"> &nbsp;   Activo  &nbsp;    </div>
+              <div class="badge badge-rounded bg-blue text-small"> &nbsp;   Activo  &nbsp;    </div>
             @endif
             </h4>
           </td>
