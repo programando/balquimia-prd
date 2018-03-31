@@ -1,12 +1,16 @@
+Vue.config.devtools = true;
+
+
  $(document).ready(function() {
 
     $("html , .side-navbar").niceScroll({
-    cursorcolor:"#47bc6a",
-    cursorwidth:"8px",
+      cursorcolor:"#47bc6a",
+      cursorwidth:"8px",
     });
 
     $('.summernote').summernote({
         height: 300,
+        width: 1070,
     });
 
  });

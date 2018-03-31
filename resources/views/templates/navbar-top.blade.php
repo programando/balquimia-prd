@@ -10,7 +10,7 @@
               <div class="navbar-header">
                 <!-- Navbar Brand -->
 
-                <a href="{{ route('index') }}" class="navbar-brand">
+                <a href="{{ route('productos.listado') }}" class="navbar-brand">
                   <div class="brand-text brand-big">
                       <span>{{ trans('_app.APP_NAME') }} </span>
 

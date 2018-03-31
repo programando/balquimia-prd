@@ -17,7 +17,7 @@ let mix = require('laravel-mix');
       'resources/assets/js/vendor/axios.js',
       'resources/assets/js/vendor/bootstrap-filestyle.js',
       'resources/assets/js/vendor/nicescroll.js',
-      'resources/assets/js/main.js',                  // Instancia de Vue ( #main)
+      'resources/assets/js/vue-instances/tabs.js',                  // Instancia de Vue ( #main)
       'resources/assets/js/app.js',                   // Archivo JS del aplicativo
 
     ], 'public/js/app.js'    ) // Archivo de salida JS

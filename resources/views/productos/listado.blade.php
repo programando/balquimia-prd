@@ -49,7 +49,7 @@
 
           <td>
             <h4>
-            <a href="{{route('productos.tabs', $Producto->idproducto)}} ">
+            <a href="{{route('tabs.show', $Producto->idproducto)}} ">
             <div class="badge badge-rounded bg-green text-small"> &nbsp; {{ $Producto->cant_tabs}} Tabs  &nbsp;    </div>
             </a>
             </h4>

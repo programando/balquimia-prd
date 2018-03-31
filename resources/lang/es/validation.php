@@ -134,7 +134,8 @@ return [
         'username'              => 'usuario',
         'year'                  => 'año',
         ////
-        'nom_perfil'            => 'cargo o perfil',
         'nom_mrca'              => 'marca',
+        'orden_tab'             => 'Orden',
+        'nombre_tab'            => 'Nombre tab',
     ],
 ];
