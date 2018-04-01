@@ -13,6 +13,7 @@
       <div class="page-content d-flex align-items-stretch">
 
             <div class="container-fluid">
+                  <br>
                  @yield('contenido-app')
             </div>
 

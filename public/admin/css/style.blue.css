@@ -2003,9 +2003,11 @@ select option {
   outline: 0 !important;
 }
 
+/*
 .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
   width: 300px;
 }
+*/
 
 /*
 * ==========================================================

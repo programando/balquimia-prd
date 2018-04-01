@@ -7,6 +7,9 @@
 <!-- Google fonts - Poppins -->
 {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">--}}
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+ {{-- css bootstrap-select --}}
+<link rel="stylesheet" href="{{ asset('admin/css/bootstrap-select.min.css') }}">
+
 
 <link rel="stylesheet" href="{{ asset('admin/vendor/summernote/summernote-bs4.css') }}" id="theme-stylesheet">
 <!-- theme stylesheet-->

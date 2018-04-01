@@ -1,6 +1,8 @@
 app-section
 blade-coment
 blade-delim
+blade-foreach
+blade-foreach-select
 card
 form-btn-submit
 form-html-horiz

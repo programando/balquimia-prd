@@ -382,7 +382,7 @@
 	};
 
 	$.fn.filestyle.defaults = {
-		'text' : 'Choose file',
+		'text' : 'Seleccione archivo',
 		'htmlIcon' : '',
 		'btnClass' : 'btn-secondary',
 		'size' : 'nr',

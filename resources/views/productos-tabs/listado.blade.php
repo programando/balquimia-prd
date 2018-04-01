@@ -1,7 +1,5 @@
 @extends('templates.app-admin')
 @section('contenido-app')
-<br>
-
 
 <div id="main">
 
@@ -22,11 +20,11 @@
               <tr>
                 <td> {{ $Tab->nombre_tab }}  </td>
                 <td width="10px">
-                  <button class="btn btn-primary btn-xs" v-on:click="Show( {{ $Tab->idtab }})">
+                  <button class="btn btn-primary btn-xs" v-on:click="TabShow( {{ $Tab->idtab }})">
                    <i class="fa fa-pencil"></i> &nbsp; Editar &nbsp;&nbsp; </button>
                  </td>
                  <td width="10px">
-                  <button class="btn btn-danger btn-xs" v-on:click="Delete( {{ $Tab->idtab }}) ">
+                  <button class="btn btn-danger btn-xs" v-on:click="TabDelete( {{ $Tab->idtab }}) ">
                    <i class="fa fa-times"></i> &nbsp; Eliminar  </button>
                  </td>
                </tr>
@@ -35,7 +33,7 @@
            </table>
         @endif
          <br>
-         <button class="btn btn-success btn-sm" :disabled="NuevoRegistro" @click="newRecord( {{ $IdProducto}} )">
+         <button class="btn btn-success btn-sm" :disabled="NuevoRegistro" @click="TabnewRecord( {{ $IdProducto}} )">
            <i class="fa fa-plus-circle"></i> &nbsp; Crear Nueva Tab
          </button>
        </div>
@@ -53,7 +51,7 @@
       </div>
 
       <div class="card-body">
-                <form class="form-horizontal" method="POST" v-on:submit.prevent="Update()"
+                <form class="form-horizontal" method="POST" v-on:submit.prevent="TabUpdate()"
                     @keydown="errors.clear($event.target.name)">
                     {{ csrf_field() }}
 

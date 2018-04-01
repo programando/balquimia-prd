@@ -12,4 +12,4 @@
    @endif
 </title>
 <!-- Favicon-->
-<link rel="shortcut icon" href=" {{ trans('_app.IMAGENES_ERP').'/favicon.ico' }}">
+<link rel="shortcut icon" href=" {{ FolderImages().'/favicon.ico' }}">

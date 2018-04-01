@@ -402,7 +402,7 @@ e.exports=function(e){return null!=e&&(n(e)||r(e)||!!e._isBuffer)}},function(e,t
 	};
 
 	$.fn.filestyle.defaults = {
-		'text' : 'Choose file',
+		'text' : 'Seleccione archivo',
 		'htmlIcon' : '',
 		'btnClass' : 'btn-secondary',
 		'size' : 'nr',
@@ -3667,7 +3667,7 @@ const Tabs = new Vue ({
   },
 
   methods:{
-       Show: function( IdTab){
+       TabShow: function( IdTab){
          var self = this;
           axios.get('/tabs-detalle/'+IdTab).then( response => {
               self.DataForm = response.data[0] ;
@@ -3675,7 +3675,7 @@ const Tabs = new Vue ({
           });
        },
 
-       Delete: function( IdTab ){
+       TabDelete: function( IdTab ){
               var URL = '/tabs/' + IdTab;
               axios.delete( URL )
               .then( response => {
@@ -3687,7 +3687,7 @@ const Tabs = new Vue ({
               });
             },
 
-       TabUpdateOld: function(){
+       TabTabUpdateOld: function(){
               var self             = this.DataForm;
               self.informacion_tab = $("#summernote").summernote("code");
               axios.post('/tabs', self  )
@@ -3697,7 +3697,7 @@ const Tabs = new Vue ({
               .catch ( this.onFail);
             },
 
-       Update: function(){
+       TabUpdate: function(){
               var self             = this.DataForm;
               if ( $.isEmptyObject(self ) ) {
                  toastr.error('Seleccione una de las tabs para actualizar su información');
@@ -3726,7 +3726,7 @@ const Tabs = new Vue ({
               this.errors.record( error.response.data.errors);
            },
 
-       newRecord: function( IdProducto){
+       TabnewRecord: function( IdProducto){
            this.NuevoRegistro = true ;
            $("#summernote").summernote("code", "");
            $("#nombre_tab").focus();
