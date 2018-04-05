@@ -42,6 +42,8 @@ class ProductosController extends Controller
 
     public function ImagenesSave( Request $FormData ){
 
+        dd( PublicStorageImages() );
+
         $this->validate( $FormData, ['imagen'=>'required|image' ]);
         $IdProducto = $FormData->idproducto;
         $File      = $FormData->imagen;
@@ -72,12 +74,13 @@ class ProductosController extends Controller
         $Carpeta       = $Tamaño .'x' .$Tamaño .'/';
         $RutaDestino   = env('FILESYSTEM_PRODUCTS_PATH').'/'.$Carpeta .$NomFile;
         $FullPathImage = PublicStorageImages().$Carpeta  .$NomFile ;
-        $img           = Image::make($File);
+        $img           = Image::make($FullPathImage );
 
         $img->resize($Tamaño, $Tamaño);
-        $img->save(   '/opt/lampp/htdocs/balquimia-prd/storage/app/public/imagenes/50x50/'.$NomFile  );
+        $img->save(   $FullPathImage );
+        //$img->save(   '/opt/lampp/htdocs/balquimia-prd/storage/app/public/imagenes/50x50/'.$NomFile  );
 
-        //$img->save(   $FullPathImage );
+        //
 
         //
         copy(  $FullPathImage, $RutaDestino  );
