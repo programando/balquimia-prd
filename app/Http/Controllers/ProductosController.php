@@ -49,10 +49,11 @@ class ProductosController extends Controller
         $File      = $FormData->imagen;
         $NomFile   = FileName($File, $IdProducto ) ;
 
-        Storage::putFileAs(FolderImages944x944(), $File ,$NomFile);
+        Storage::disk('public')->putFileAs(FolderImages944x944(), $File ,$NomFile);
         //Redimensiona y almacena imagenes
         $this->ImageResize( $File,50,  $NomFile );
-        $this->ImageResize( $File,70,  $NomFile );
+
+        /*$this->ImageResize( $File,70,  $NomFile );
         $this->ImageResize( $File,150, $NomFile );
         $this->ImageResize( $File,232, $NomFile );
         $this->ImageResize( $File,472, $NomFile );
@@ -60,6 +61,7 @@ class ProductosController extends Controller
         $ImagenProducto = ProductosImagenes::where('idproducto',$IdProducto)->first();
         $ImagenProducto->nombre_imagen = $NomFile;
         $ImagenProducto->update();
+        */
 
 
         dd("Finaliza", $IdProducto );
@@ -74,14 +76,9 @@ class ProductosController extends Controller
         $Carpeta       = $Tamaño .'x' .$Tamaño .'/';
         $RutaDestino   = env('FILESYSTEM_PRODUCTS_PATH').'/'.$Carpeta .$NomFile;
         $FullPathImage = PublicStorageImages().$Carpeta  .$NomFile ;
-        $img           = Image::make($File->getRealPath() );
+        $img           = Image::make($File );
         $img->resize($Tamaño, $Tamaño);
         $img->save(   $FullPathImage );
-        //$img->save(   '/opt/lampp/htdocs/balquimia-prd/storage/app/public/imagenes/50x50/'.$NomFile  );
-
-        //
-
-        //
         copy(  $FullPathImage, $RutaDestino  );
 
      }
