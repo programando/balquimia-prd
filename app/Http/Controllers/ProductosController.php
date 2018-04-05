@@ -74,8 +74,7 @@ class ProductosController extends Controller
         $Carpeta       = $Tamaño .'x' .$Tamaño .'/';
         $RutaDestino   = env('FILESYSTEM_PRODUCTS_PATH').'/'.$Carpeta .$NomFile;
         $FullPathImage = PublicStorageImages().$Carpeta  .$NomFile ;
-        $img           = Image::make($FullPathImage );
-
+        $img           = Image::make($File->getRealPath() );
         $img->resize($Tamaño, $Tamaño);
         $img->save(   $FullPathImage );
         //$img->save(   '/opt/lampp/htdocs/balquimia-prd/storage/app/public/imagenes/50x50/'.$NomFile  );
