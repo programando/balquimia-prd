@@ -49,7 +49,7 @@ class ProductosController extends Controller
         $File      = $FormData->imagen;
         $NomFile   = FileName($File, $IdProducto ) ;
 
-        Storage::disk('public')->putFileAs(FolderImages944x944(), $File ,$NomFile);
+        Storage::disk('public')->putFileAs(FolderImages944x944().'/', $File ,$NomFile);
         //Redimensiona y almacena imagenes
         $this->ImageResize( $File,50,  $NomFile );
 
