@@ -75,7 +75,11 @@ class ProductosController extends Controller
         $img           = Image::make($File);
 
         $img->resize($Tamaño, $Tamaño);
-        $img->save(   $FullPathImage );
+        $img->save(   '/opt/lampp/htdocs/balquimia-prd/storage/app/public/imagenes/50x50/'.$NomFile  );
+
+        //$img->save(   $FullPathImage );
+
+        //
         copy(  $FullPathImage, $RutaDestino  );
 
      }
