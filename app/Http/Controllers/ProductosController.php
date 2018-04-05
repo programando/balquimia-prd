@@ -53,7 +53,7 @@ class ProductosController extends Controller
         //Redimensiona y almacena imagenes
         $this->ImageResize( $File,50,  $NomFile );
 
-        /*$this->ImageResize( $File,70,  $NomFile );
+        $this->ImageResize( $File,70,  $NomFile );
         $this->ImageResize( $File,150, $NomFile );
         $this->ImageResize( $File,232, $NomFile );
         $this->ImageResize( $File,472, $NomFile );
@@ -61,7 +61,6 @@ class ProductosController extends Controller
         $ImagenProducto = ProductosImagenes::where('idproducto',$IdProducto)->first();
         $ImagenProducto->nombre_imagen = $NomFile;
         $ImagenProducto->update();
-        */
 
 
         dd("Finaliza", $IdProducto );
@@ -79,6 +78,7 @@ class ProductosController extends Controller
         $img           = Image::make($File );
         $img->resize($Tamaño, $Tamaño);
         $img->save(   $FullPathImage );
+        dd($FullPathImage, $RutaDestino  );
         copy(  $FullPathImage, $RutaDestino  );
 
      }
