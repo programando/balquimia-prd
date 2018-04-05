@@ -42,7 +42,7 @@ class ProductosController extends Controller
 
     public function ImagenesSave( Request $FormData ){
 
-        dd( PublicStorageImages() );
+        //dd( PublicStorageImages() );
 
         $this->validate( $FormData, ['imagen'=>'required|image' ]);
         $IdProducto = $FormData->idproducto;
