@@ -73,12 +73,11 @@ class ProductosController extends Controller
 
      private function ImageResize( $File, $Tamaño,$NomFile  ){
         $Carpeta       = $Tamaño .'x' .$Tamaño .'/';
-        $RutaDestino   = env('FILESYSTEM_PRODUCTS_PATH').'/'.$Carpeta .$NomFile;
+        $RutaDestino   = '/opt/lampp/htdocs/balquimia-prd/storage/app/public/imagenes/'.$Carpeta .$NomFile;
         $FullPathImage = PublicStorageImages().$Carpeta  .$NomFile ;
         $img           = Image::make($File );
         $img->resize($Tamaño, $Tamaño);
         $img->save(   $FullPathImage );
-        dd($FullPathImage, $RutaDestino  );
         copy(  $FullPathImage, $RutaDestino  );
 
      }
