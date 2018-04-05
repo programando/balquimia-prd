@@ -42,8 +42,6 @@ class ProductosController extends Controller
 
     public function ImagenesSave( Request $FormData ){
 
-        //dd( PublicStorageImages() );
-
         $this->validate( $FormData, ['imagen'=>'required|image' ]);
         $IdProducto = $FormData->idproducto;
         $File      = $FormData->imagen;
@@ -62,18 +60,15 @@ class ProductosController extends Controller
         $ImagenProducto->nombre_imagen = $NomFile;
         $ImagenProducto->update();
 
+         return Redirect('/');
 
         dd("Finaliza", $IdProducto );
-       /* Storage::putFileAs('images/100x100/', $File ,$NomFile);
 
-
-        return Redirect('/');
-    */
-}
+      }
 
      private function ImageResize( $File, $Tamaño,$NomFile  ){
         $Carpeta       = $Tamaño .'x' .$Tamaño .'/';
-        $RutaDestino   = '/opt/lampp/htdocs/balquimia-prd/storage/app/public/imagenes/'.$Carpeta .$NomFile;
+        $RutaDestino   = '/opt/lampp/htdocs/tron/public/images/productos/'.$Carpeta .$NomFile;
         $FullPathImage = PublicStorageImages().$Carpeta  .$NomFile ;
         $img           = Image::make($File );
         $img->resize($Tamaño, $Tamaño);
