@@ -49,7 +49,7 @@
 
           <td>
             <h4>
-            <a href="{{route('tabs.show', $Producto->idproducto)}} ">
+            <a href="{{route('tabs.show', $Producto->idproducto )}} ">
             <div class="badge badge-rounded bg-green text-small"> &nbsp; {{ $Producto->cant_tabs}} Tabs  &nbsp;    </div>
             </a>
             </h4>
@@ -57,7 +57,7 @@
 
           <td>
            <h4>
-            <a href="{{route('productos.imagenes')}}">
+            <a href="{{route('productos.imagenes',['producto' =>$Producto->nom_producto, 'idproducto' => $Producto->idproducto ] ) }}">
             <div class="badge badge-rounded bg-orange text-small"> &nbsp; {{ $Producto->cant_imagenes }} Imágenes  &nbsp;    </div>
             </a>
             </h4>

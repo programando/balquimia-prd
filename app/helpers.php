@@ -60,10 +60,26 @@ if (!function_exists('FileUnqName')) {
     }
 }
 
+if (!function_exists('PublicStorage')) {
+    /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
+    function PublicStorage(  ) {
+        return storage_path("app/public/");
+    }
+}
+
+if (!function_exists('PublicStorageImages')) {
+    /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
+    function PublicStorageImages(  ) {
+        return storage_path("app/public/imagenes/");
+    }
+}
+
+
+
 if (!function_exists('FolderImages')) {
     /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
     function FolderImages(  ) {
-        return asset("storage/imagenes/");
+        return storage_path("app/public/imagenes/");
     }
 }
 
@@ -71,8 +87,7 @@ if (!function_exists('FolderImages')) {
 if (!function_exists('FolderImages50x50')) {
     /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
     function FolderImages50x50(  ) {
-        //return   storage_path("app/public/images/50x50/");
-       return asset('storage/imagenes/50x50');
+        return 'imagenes/50x50/';
     }
 }
 
@@ -80,15 +95,14 @@ if (!function_exists('FolderImages70x70')) {
     /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
     function FolderImages70x70(  ) {
         //return   storage_path("app/public/images/50x50/");
-       return asset('storage/imagenes/70x70');
+        return 'imagenes/70x70/';
     }
 }
 
 if (!function_exists('FolderImages150x150')) {
     /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
     function FolderImages150x150(  ) {
-        //return   storage_path("app/public/images/50x50/");
-       return asset('storage/imagenes/150x150');
+       return 'imagenes/150x150/';
     }
 
 }
@@ -96,8 +110,7 @@ if (!function_exists('FolderImages150x150')) {
 if (!function_exists('FolderImages232x232')) {
     /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
     function FolderImages232x232(  ) {
-        //return   storage_path("app/public/images/50x50/");
-       return asset('storage/imagenes/232x232');
+       return 'imagenes/232x232/';
     }
 }
 
@@ -105,16 +118,14 @@ if (!function_exists('FolderImages232x232')) {
 if (!function_exists('FolderImages472x472')) {
     /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
     function FolderImages472x472(  ) {
-        //return   storage_path("app/public/images/50x50/");
-       return asset('storage/imagenes/472x472');
+       return 'imagenes/472x472/';
     }
 }
 
 if (!function_exists('FolderImages944x944')) {
     /** * MARZO 18 2018.  Retorna ruta base para el almacenamiento de imagenes */
     function FolderImages944x944(  ) {
-        //return   storage_path("app/public/images/50x50/");
-       return asset('storage/imagenes/944x944');
+       return 'imagenes/944x944/';
     }
 }
 

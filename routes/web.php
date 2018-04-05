@@ -16,7 +16,8 @@ Route::get('logout'           , 'TercerosController@getLogOut')->name('logout');
 
 
 Route::get('/'             , 'ProductosController@Listado')->name('productos.listado');
-Route::get('imagenes'      , 'ProductosController@Imagenes')->name('productos.imagenes');
+Route::get('imagenes/{producto}/{idimagen}'      , 'ProductosController@Imagenes')->name('productos.imagenes');
+Route::post('imagenes-save'      , 'ProductosController@ImagenesSave')->name('productos.imagenes.save');
 
 //-------------------------------------------------------------------------------------------
 // TABS
