@@ -57,6 +57,9 @@ class ProductosController extends Controller
         $this->ImageResize( $File,472, $NomFile );
 
         $ImagenProducto = ProductosImagenes::where('idproducto',$IdProducto)->first();
+        if ( !$ImagenProducto ){
+          $ImagenProducto = new ProductosImagenes;
+        }
         $ImagenProducto->nombre_imagen = $NomFile;
         $ImagenProducto->update();
 
