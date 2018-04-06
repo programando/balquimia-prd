@@ -12,4 +12,4 @@
    @endif
 </title>
 <!-- Favicon-->
-<link rel="shortcut icon" href="{{ asset('public/favicon.ico')}}">
+<link rel="shortcut icon" href="http://www.balquimiaventasonline.com/public/images/empresa/favicon.ico">
