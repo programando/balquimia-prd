@@ -61,6 +61,8 @@ class ProductosController extends Controller
           $ImagenProducto = new ProductosImagenes;
         }
         $ImagenProducto->nombre_imagen = $NomFile;
+        $ImagenProducto->idproducto    = $IdProducto;
+        $ImagenProducto->zoom          = 0;
         $ImagenProducto->save();
 
          return Redirect('/');
