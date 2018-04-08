@@ -45,8 +45,6 @@
           <td> {{ $Producto->nom_marca                }} </td>
           <td> {{ number_format( $Producto->pv_tron, 0, '.', ',' ) }} </td>
            <td> {{ number_format( $Producto->pv_ocasional, 0, '.', ',' ) }} </td>
-
-
           <td>
             <h4>
             <a href="{{route('tabs.show', $Producto->idproducto )}} ">
@@ -57,7 +55,7 @@
 
           <td>
            <h4>
-            <a href="{{route('productos.imagenes',['producto' =>$Producto->nom_producto, 'idproducto' => $Producto->idproducto ] ) }}">
+            <a href="{{route('productos.imagenes.show',['IdProducto' =>$Producto->idproducto ] ) }}">
             <div class="badge badge-rounded bg-orange text-small"> &nbsp; {{ $Producto->cant_imagenes }} Imágenes  &nbsp;    </div>
             </a>
             </h4>

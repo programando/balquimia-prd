@@ -7,21 +7,30 @@ use Illuminate\Http\Request;
 
 
 use App\Models\ProductosImagene         as ProductosImagenes;
-use App\Models\ProductosMarca           as Marcas;
-use App\Models\ProductosPresentacione   as Presentaciones;
+
 
 use DB;
 use Redirect;
 use Storage;
 use Image;
+use Session;
 
 
 
 class ProductosController extends Controller
 {
+    public function __construct(){
+        Session()->put('Productos',array());
+    }
 
     public function Listado(){
-      $Productos     = DB::select(' call productos_listado_general() ');
+      $Productos = Session()->get('Productos');
+
+      if ( count($Productos) == 0 ) {
+           $ProductosAll     = DB::select(' call productos_listado_general() ');
+           Session()->put('Productos',  $ProductosAll );
+        }
+
       $form_title    = 'Productos';
       $browser_title = 'Productos';
      return view('productos.listado', compact('form_title','browser_title','Productos'));
@@ -29,16 +38,27 @@ class ProductosController extends Controller
     }
 
 
-    public function Imagenes( $NomProducto='', $IdProducto=0){
-      //$Presentaciones = Presentaciones::where('idpresentacion','>','0')->OrderBy('nompresentacion')->get();
-      //$Marcas         = Marcas::where('idmarca','>','0')->OrderBy('nom_marca')->get();
-      //$Nivel_0        = DB::select( ' call orden_menu_nivel_0() ');
 
-      $form_title     = 'Productos';
-      $browser_title  = 'Productos';
-      return view('productos.imagenes', compact('form_title','browser_title','NomProducto','IdProducto'));
+
+    public function ImagesDelete( $IdImagen ) {
+
+      $Imagen        = ProductosImagenes::where('idimagen', $IdImagen)->first();
+
+      $IdProducto = $Imagen->idproducto;
+      $Imagen->delete();
+      return response()->json( $IdProducto ) ;
+
     }
 
+    public function ImagenesShow( $IdProducto ){
+
+        $form_title     = 'Productos';
+        $browser_title  = 'Productos';
+        $Imagenes       = DB::select(' call productos_imagenes_consulta_por_idproducto(?)', array( $IdProducto) );
+        $IdProducto     = $Imagenes[0]->idproducto;
+        $NomProducto    = $Imagenes[0]->nom_producto;
+        return view('productos.imagenes', compact('Imagenes','form_title','browser_title','IdProducto','NomProducto'));
+    }
 
     public function ImagenesSave( Request $FormData ){
 
@@ -57,15 +77,16 @@ class ProductosController extends Controller
         $this->ImageResize( $File,472, $NomFile );
 
         $ImagenProducto = ProductosImagenes::where('idproducto',$IdProducto)->first();
-        if ( !$ImagenProducto ){
+        $ImagenProducto = new ProductosImagenes;
+        /*if ( !$ImagenProducto ){
           $ImagenProducto = new ProductosImagenes;
-        }
+        }*/
         $ImagenProducto->nombre_imagen = $NomFile;
         $ImagenProducto->idproducto    = $IdProducto;
         $ImagenProducto->zoom          = 0;
         $ImagenProducto->save();
 
-         return Redirect('/');
+         return Redirect('/imagenes/'.$IdProducto);
 
         dd("Finaliza", $IdProducto );
 

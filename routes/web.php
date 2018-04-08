@@ -11,13 +11,10 @@
 |
 
 */
-
-Route::get('logout'           , 'TercerosController@getLogOut')->name('logout');
-
-
-Route::get('/'             , 'ProductosController@Listado')->name('productos.listado');
-Route::get('imagenes/{producto}/{idimagen}'      , 'ProductosController@Imagenes')->name('productos.imagenes');
-Route::post('imagenes-save'      , 'ProductosController@ImagenesSave')->name('productos.imagenes.save');
+Route::get('/'                     , 'ProductosController@Listado')->name('productos.listado');
+Route::post('imagenes-save'        , 'ProductosController@ImagenesSave')->name('productos.imagenes.save');
+Route::get('imagenes/{producto}'   , 'ProductosController@ImagenesShow')->name('productos.imagenes.show');
+Route::delete('imagenes/{idmagen}' , 'ProductosController@ImagesDelete')->name('tabs.delete');
 
 //-------------------------------------------------------------------------------------------
 // TABS
@@ -27,6 +24,8 @@ Route::get('tabs-detalle/{idtab}'   , 'ProductosTabsController@Detalle')->name('
 Route::get('tabs/{idproducto}'      , 'ProductosTabsController@Show')->name('tabs.show');
 Route::post('tabs'                  , 'ProductosTabsController@Update')->name('tab.grabar');
 
+
+Route::get('logout'           , 'TercerosController@getLogOut')->name('logout');
 
 
 

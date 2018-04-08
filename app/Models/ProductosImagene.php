@@ -23,3 +23,6 @@ class ProductosImagene extends Model
  ];
 
 }
+
+
+
