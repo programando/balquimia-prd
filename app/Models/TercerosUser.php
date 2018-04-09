@@ -12,11 +12,10 @@ class TercerosUser extends Authenticatable
 {
     protected $table      = 'terceros_users';
      protected $primaryKey = 'id_terc';
-     protected $fillable   = [ 'email', 'nom_usua', 'password', 'remember_token','imagen' ];
+     protected $fillable   = [ 'email', 'nom_usua', 'password', 'remember_token' ];
      protected $hidden     = [ 'password', 'remember_token' ];
      protected $casts      = [ 'id_terc' => 'int'    ];
      protected $dates      = [ 'created_at', 'updated_at', 'deleted_at' ];
-
 
 
      /***********************************************************************

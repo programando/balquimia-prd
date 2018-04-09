@@ -11,21 +11,30 @@
 |
 
 */
-Route::get('/'                     , 'ProductosController@Listado')->name('productos.listado');
-Route::post('imagenes-save'        , 'ProductosController@ImagenesSave')->name('productos.imagenes.save');
-Route::get('imagenes/{producto}'   , 'ProductosController@ImagenesShow')->name('productos.imagenes.show');
-Route::delete('imagenes/{idmagen}' , 'ProductosController@ImagesDelete')->name('tabs.delete');
 
-//-------------------------------------------------------------------------------------------
-// TABS
-//-------------------------------------------------------------------------------------------
-Route::delete('tabs/{idtab}'        , 'ProductosTabsController@Delete')->name('tabs.delete');
-Route::get('tabs-detalle/{idtab}'   , 'ProductosTabsController@Detalle')->name('tab.detalle');
-Route::get('tabs/{idproducto}'      , 'ProductosTabsController@Show')->name('tabs.show');
-Route::post('tabs'                  , 'ProductosTabsController@Update')->name('tab.grabar');
-
-
+Route::get('/'            , 'TercerosController@getLogin')->name('login');
+Route::get('login'            , 'TercerosController@getLogin')->name('login');
+Route::post('login'           , 'TercerosController@postLogin')->name('login');
 Route::get('logout'           , 'TercerosController@getLogOut')->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('productos'                     , 'ProductosController@Listado')->name('productos.listado');
+    Route::post('imagenes-save'        , 'ProductosController@ImagenesSave')->name('productos.imagenes.save');
+    Route::get('imagenes/{producto}'   , 'ProductosController@ImagenesShow')->name('productos.imagenes.show');
+    Route::delete('imagenes/{idmagen}' , 'ProductosController@ImagesDelete')->name('tabs.delete');
+
+    //-------------------------------------------------------------------------------------------
+    // TABS
+    //-------------------------------------------------------------------------------------------
+    Route::delete('tabs/{idtab}'        , 'ProductosTabsController@Delete')->name('tabs.delete');
+    Route::get('tabs-detalle/{idtab}'   , 'ProductosTabsController@Detalle')->name('tab.detalle');
+    Route::get('tabs/{idproducto}'      , 'ProductosTabsController@Show')->name('tabs.show');
+    Route::post('tabs'                  , 'ProductosTabsController@Update')->name('tab.grabar');
+
+});
+
+
+
 
 
 

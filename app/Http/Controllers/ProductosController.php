@@ -19,22 +19,13 @@ use Session;
 
 class ProductosController extends Controller
 {
-    public function __construct(){
-        Session()->put('Productos',array());
-    }
+
 
     public function Listado(){
-      $Productos = Session()->get('Productos');
-
-      if ( count($Productos) == 0 ) {
-           $ProductosAll     = DB::select(' call productos_listado_general() ');
-           Session()->put('Productos',  $ProductosAll );
-        }
-
+      $Productos     = DB::select(' call productos_listado_general() ');
       $form_title    = 'Productos';
       $browser_title = 'Productos';
      return view('productos.listado', compact('form_title','browser_title','Productos'));
-
     }
 
 
@@ -78,9 +69,6 @@ class ProductosController extends Controller
 
         $ImagenProducto = ProductosImagenes::where('idproducto',$IdProducto)->first();
         $ImagenProducto = new ProductosImagenes;
-        /*if ( !$ImagenProducto ){
-          $ImagenProducto = new ProductosImagenes;
-        }*/
         $ImagenProducto->nombre_imagen = $NomFile;
         $ImagenProducto->idproducto    = $IdProducto;
         $ImagenProducto->zoom          = 0;
@@ -88,7 +76,6 @@ class ProductosController extends Controller
 
          return Redirect('/imagenes/'.$IdProducto);
 
-        dd("Finaliza", $IdProducto );
 
       }
 

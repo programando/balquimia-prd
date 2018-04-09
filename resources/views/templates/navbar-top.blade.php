@@ -49,19 +49,7 @@
                     </a>
                 </li>
 
-           <li class="nav-item">
-                    <a href="" class="nav-link logout">
-                      Marcas
-                      <i class="fa fa-tags"></i>
-                    </a>
-                </li>
 
-           <li class="nav-item">
-                    <a href="" class="nav-link logout">
-                      Banco de Imágenes
-                    <i class="fa fa-camera"></i>
-                    </a>
-                </li>
 
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link logout">
