@@ -5,21 +5,46 @@
 
 
   <div class="row">
-    <div class="col col-6">
-      <h2>Listado de Productos</h2>
+    <div class="col col-3">
+
     </div>
 
-    <div class="col col-6">
-
+    <div class="col col-9">
       <label for="buscar">Buscar Producto </label>
-      <input type="text" class="form-control" id="input-buscar" onkeyup="BuscarEnTabla()">
+      <input type="text" class="form-control" id="input_buscar" onkeyup="BuscarEnTabla('table','input_buscar')">
     </div>
 
   </div>
 
 
   <div class="row"  >
-    <div class="col-sm-12">
+    <div class="col-sm-3">
+          <h2>Tipos de Productos</h2>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                @foreach ( $Categorias as $Categoria)
+                <tr name='cats'>
+                  <td>
+                   <a href="{{ route('productos.categoria', ['idcategoria' => $Categoria->idorden_nv_2 ] ) }}">
+                  <div class="badge badge-rounded bg-green "> &nbsp; {{ $Categoria->cantidad }}  &nbsp;     </div>  &nbsp;
+                     {{ $Categoria->orden_nivel_2 }}  </div>
+
+                      </a>
+                 </td>
+                </tr>
+                @endforeach
+              </tbody>
+
+           </table>
+
+    </div>
+    <div class="col-sm-9">
 
     <table class="table table-striped" id="table">
       <thead>

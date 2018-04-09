@@ -22,10 +22,21 @@ class ProductosController extends Controller
 
 
     public function Listado(){
-      $Productos     = DB::select(' call productos_listado_general() ');
+      $Categorias    = DB::select(' call productos_categorias_nivel_2_all() ');
+      $PrimeraCateg =  $Categorias[0]->idorden_nv_2 ;
+      $Productos     = DB::select(' call productos_listado_x_nivel_2 (?) ', array($PrimeraCateg) );
       $form_title    = 'Productos';
       $browser_title = 'Productos';
-     return view('productos.listado', compact('form_title','browser_title','Productos'));
+     return view('productos.listado', compact('form_title','browser_title','Productos','Categorias'));
+    }
+
+
+  public function Categorias( $IdCategoria ){
+      $Categorias    = DB::select(' call productos_categorias_nivel_2_all() ');
+      $Productos     = DB::select(' call productos_listado_x_nivel_2 (?) ', array($IdCategoria) );
+      $form_title    = 'Productos';
+      $browser_title = 'Productos';
+     return view('productos.listado', compact('form_title','browser_title','Productos','Categorias'));
     }
 
 
