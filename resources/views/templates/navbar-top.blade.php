@@ -50,6 +50,19 @@
                 </li>
 
 
+                <li class="nav-item">
+                    <a href="{{ route('productos.new') }}" class="nav-link logout">
+                      Últimos 50 Productos Creados
+                      <i class="fa fa-refresh"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('productos.no.tabs') }}" class="nav-link logout">
+                      Productos sin Tabs/Imágenes
+                      <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link logout">

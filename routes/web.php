@@ -24,6 +24,9 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('imagenes/{idmagen}' , 'ProductosController@ImagesDelete')->name('tabs.delete');
     Route::get('productos/{idcategoria}'  , 'ProductosController@Categorias')->name('productos.categoria');
 
+    Route::get('productos-new'  , 'ProductosController@UltimosCreados')->name('productos.new');
+    Route::get('productos-sin-tabs'  , 'ProductosController@SinTabsImagenes')->name('productos.no.tabs');
+
     //-------------------------------------------------------------------------------------------
     // TABS
     //-------------------------------------------------------------------------------------------

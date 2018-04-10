@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 
 use App\Models\ProductosImagene         as ProductosImagenes;
+use App\Models\Producto                 as Productos;
 
 
 use DB;
@@ -14,6 +15,7 @@ use Redirect;
 use Storage;
 use Image;
 use Session;
+use PDO;
 
 
 
@@ -40,6 +42,20 @@ class ProductosController extends Controller
     }
 
 
+    public function UltimosCreados(){
+        $form_title    = 'Últimos Productos Creados';
+        $browser_title = 'Productos';
+        $Productos    = DB::select(' call productos_ultimos_50_creados() ');
+        return view('productos.listado_general', compact('form_title','browser_title','Productos'));
+    }
+
+    public function SinTabsImagenes(){
+        $form_title    = 'Productos sin Tabs/Imágenes';
+        $browser_title = 'Productos';
+        $Productos    = DB::select(' call productos_sin_tabs_imagenes() ');
+        return view('productos.listado_general', compact('form_title','browser_title','Productos'));
+    }
+
 
 
     public function ImagesDelete( $IdImagen ) {
@@ -56,9 +72,15 @@ class ProductosController extends Controller
 
         $form_title     = 'Productos';
         $browser_title  = 'Productos';
+
         $Imagenes       = DB::select(' call productos_imagenes_consulta_por_idproducto(?)', array( $IdProducto) );
-        $IdProducto     = $Imagenes[0]->idproducto;
-        $NomProducto    = $Imagenes[0]->nom_producto;
+        if ( !$Imagenes ) {
+          $Producto = Productos::where('idproducto', $IdProducto)->first();
+          $NomProducto    = $Producto->nom_producto;
+        }else{
+            $NomProducto    = $Imagenes[0]->nom_producto;
+        }
+
         return view('productos.imagenes', compact('Imagenes','form_title','browser_title','IdProducto','NomProducto'));
     }
 
