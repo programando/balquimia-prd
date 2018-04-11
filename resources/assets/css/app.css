@@ -89,3 +89,11 @@
     /* line-height: 1.5; */
     /* border-radius: 0.2rem; */
 }
+
+
+.badge-right {
+  float:right;
+  font-size: 15px;
+}
+
+

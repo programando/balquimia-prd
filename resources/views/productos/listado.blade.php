@@ -31,11 +31,11 @@
                 @foreach ( $Categorias as $Categoria)
                 <tr name='cats'>
                   <td>
-                   <a href="{{ route('productos.categoria', ['idcategoria' => $Categoria->idorden_nv_2 ] ) }}">
-                  <div class="badge badge-rounded bg-green "> &nbsp; {{ $Categoria->cantidad }}  &nbsp;     </div>  &nbsp;
-                     {{ $Categoria->orden_nivel_2 }}  </div>
-
-                      </a>
+                     <a href="{{ route('productos.categoria', ['idcategoria' => $Categoria->idorden_nv_2 ] ) }}">
+                       {{ $Categoria->orden_nivel_2 }}
+                     </a>
+                     <span class="bage badge-right badge-rounded bg-green"> &nbsp;
+                     <small> &nbsp;  {{ $Categoria->cantidad }}  &nbsp;   </small> &nbsp; </span>
                  </td>
                 </tr>
                 @endforeach
