@@ -97,6 +97,7 @@
 
 }
 
+
 /* ====================================================
     MENU LATERAL IZQUIERDO EN LISTADO DE PRODUCTOS
     CATEGORIAS Y SUBCATEGRÍAS
@@ -155,3 +156,9 @@
 .list-group {
   width: 350px;
 }
+
+.table td, .table th .table tr {
+    padding: 5px;
+    vertical-align: middle;
+}
+
