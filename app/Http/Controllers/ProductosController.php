@@ -21,24 +21,30 @@ use PDO;
 
 class ProductosController extends Controller
 {
+   private $Menus = array();
 
+    public function __construct(){
+        $this->Menus = Productos::getMenu();
+    }
 
     public function Listado(){
+      $Menus         = $this->Menus;
       $Categorias    = DB::select(' call productos_categorias_nivel_2_all() ');
-      $PrimeraCateg =  $Categorias[0]->idorden_nv_2 ;
+      $PrimeraCateg  =  $Categorias[0]->idorden_nv_2 ;
       $Productos     = DB::select(' call productos_listado_x_nivel_2 (?) ', array($PrimeraCateg) );
       $form_title    = 'Productos';
       $browser_title = 'Productos';
-     return view('productos.listado', compact('form_title','browser_title','Productos','Categorias'));
+     return view('productos.listado', compact('form_title','browser_title','Productos','Categorias','Menus'));
     }
 
 
   public function Categorias( $IdCategoria ){
+      $Menus         = $this->Menus;
       $Categorias    = DB::select(' call productos_categorias_nivel_2_all() ');
       $Productos     = DB::select(' call productos_listado_x_nivel_2 (?) ', array($IdCategoria) );
       $form_title    = 'Productos';
       $browser_title = 'Productos';
-     return view('productos.listado', compact('form_title','browser_title','Productos','Categorias'));
+     return view('productos.listado', compact('form_title','browser_title','Productos','Categorias','Menus'));
     }
 
 

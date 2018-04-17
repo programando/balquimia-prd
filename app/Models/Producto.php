@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use DB;
+
+
 class Producto extends Model
 {
  protected $table ='productos';
@@ -126,5 +129,47 @@ class Producto extends Model
   'cobrar_flete',
   'tipo_combo'
  ];
+
+
+
+
+public static function getMenu(){
+
+
+  $AllCateg   =  DB::select(' call productos_categ() ');
+
+        $menuAll = array();
+        $MenuTemp =array();
+
+
+        foreach ($AllCateg as $Categ) {
+            $MenuTemp['idmenu']      = $Categ->idmenu;
+            $MenuTemp['menu']        = $Categ->menu;
+            $MenuTemp['idsubmenu']   = 0;
+            $MenuTemp['submenu']     = '';
+            $MenuTemp['idmenuPadre'] = $Categ->idmenu;
+            $MenuTemp['cantidad']    = 0;
+            array_push( $menuAll,$MenuTemp );
+            $SubMenus =  DB::select(' call productos_categ_subcatg(?) ', array( $Categ->idmenu ));
+
+            foreach ( $SubMenus as $SubMenu ) {
+                $IdMenuPadre = $SubMenu->idmenu;
+                if ( $IdMenuPadre ==$MenuTemp['idmenu'] ){
+                    $MenuTemp['idmenu'] = 0;
+                    $MenuTemp['menu']   = '';
+                }
+                 $MenuTemp['idsubmenu']   = $SubMenu->idsubmenu ;
+                 $MenuTemp['submenu']     = $SubMenu->submenu ;
+                 $MenuTemp['idmenuPadre'] = $Categ->idmenu;
+                 $MenuTemp['cantidad']    = $SubMenu->cantidad;
+                array_push( $menuAll,$MenuTemp );
+            }
+
+
+        }
+
+
+  return $menuAll ;
+}
 
 }

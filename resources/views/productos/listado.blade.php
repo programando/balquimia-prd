@@ -19,31 +19,11 @@
 
   <div class="row"  >
     <div class="col-sm-3">
-          <h2>Tipos de Productos</h2>
-          <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th></th>
-                </tr>
-              </thead>
-
-              <tbody>
-                @foreach ( $Categorias as $Categoria)
-                <tr name='cats'>
-                  <td>
-                     <a href="{{ route('productos.categoria', ['idcategoria' => $Categoria->idorden_nv_2 ] ) }}">
-                       {{ $Categoria->orden_nivel_2 }}
-                     </a>
-                     <span class="bage badge-right badge-rounded bg-green"> &nbsp;
-                     <small> &nbsp;  {{ $Categoria->cantidad }}  &nbsp;   </small> &nbsp; </span>
-                 </td>
-                </tr>
-                @endforeach
-              </tbody>
-
-           </table>
-
+          <h2>Categorías de Productos</h2>
+            @include('productos.menu_categ')
     </div>
+
+
     <div class="col-sm-9">
 
     <table class="table table-striped" id="table">

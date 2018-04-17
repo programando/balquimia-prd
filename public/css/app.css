@@ -328,6 +328,64 @@ button.toast-close-button {
 .badge-right {
   float:right;
   font-size: 15px;
+
 }
 
+/* ====================================================
+    MENU LATERAL IZQUIERDO EN LISTADO DE PRODUCTOS
+    CATEGORIAS Y SUBCATEGRÍAS
+   ====================================================
+*/
 
+#body-row {
+    margin-left:0;
+    margin-right:0;
+}
+
+#sidebar-container {
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Sidebar sizes when expanded and expanded */
+.sidebar-expanded {
+    width: 230px;
+}
+.sidebar-collapsed {
+    width: 60px;
+}
+
+/* Submenu item*/
+#sidebar-container .list-group .sidebar-submenu a {
+    height: auto;
+    padding-left: 30px;
+}
+.sidebar-submenu {
+    font-size: 0.9rem;
+}
+
+/* highlight active menu */
+#sidebar .list-group-item:not(.collapsed) {
+ background-color: #222;
+}
+
+/* Closed submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+  content: " \f0d7";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 10px;
+}
+/* Opened submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+  content: " \f0da";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 10px;
+}
+
+.list-group {
+  width: 350px;
+}
