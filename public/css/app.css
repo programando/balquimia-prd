@@ -331,6 +331,7 @@ button.toast-close-button {
 
 }
 
+
 /* ====================================================
     MENU LATERAL IZQUIERDO EN LISTADO DE PRODUCTOS
     CATEGORIAS Y SUBCATEGRÍAS
@@ -364,7 +365,6 @@ button.toast-close-button {
     font-size: 0.9rem;
 }
 
-<<<<<<< HEAD
 /* highlight active menu */
 #sidebar .list-group-item:not(.collapsed) {
  background-color: #222;
@@ -390,9 +390,9 @@ button.toast-close-button {
 .list-group {
   width: 350px;
 }
-=======
+
 .table td, .table th .table tr {
     padding: 5px;
     vertical-align: middle;
 }
->>>>>>> origin/master
+
