@@ -96,4 +96,7 @@
   font-size: 15px;
 }
 
-
+.table td, .table th .table tr {
+    padding: 5px;
+    vertical-align: middle;
+}
